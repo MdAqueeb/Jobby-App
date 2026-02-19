@@ -1,14 +1,19 @@
+
+
+import { useState } from "react";
+// import Logo from "../assets/logo-img.png";
 import LoginCard from "../Components/LoginCard";
 
-const LoginPage = () => {
-    return (
-        <main className="h-screen  bg-[#121212] flex flex-col justify-center items-center">
-            {/* <LoginCard /> */}
-        </main>
-    )
-}
+const Login = () => {
+  
 
-export default LoginPage;
+  return (
+    <div className="min-h-screen bg-[#000000] flex items-center justify-center px-4">
+        <LoginCard />
+    </div>
+  );
+};
 
+export default Login;
 
-// bg-#121212
+// // bg-#121212
