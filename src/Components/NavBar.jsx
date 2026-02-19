@@ -18,8 +18,8 @@ const NavBar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link to="/" className="hover:text-[#6366f1]">Home</Link>
-          <Link to="/jobs" className="hover:text-[#6366f1]">Jobs</Link>
+          <Link to="/" className="hover:text-[#6366f1] text-white">Home</Link>
+          <Link to="/jobs" className="hover:text-[#6366f1] text-white">Jobs</Link>
           
         </div>
 
