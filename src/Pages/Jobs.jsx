@@ -6,7 +6,7 @@ import NavBar from '../Components/NavBar'
 
 const Jobs = () => {
   const [profileStatus, setProfileStatus] = useState('SUCCESS')
-  const [jobsStatus, setJobsStatus] = useState('FAILURE')
+  const [jobsStatus, setJobsStatus] = useState('SUCCESS')
 
   return (
     <>

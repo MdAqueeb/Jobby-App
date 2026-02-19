@@ -43,7 +43,7 @@ const JobsList = ({status}) => {
 
       <ul className="space-y-6">
         {jobs.map(job => (
-          <JobCard key={job.id} job={job} />
+          <JobCard key={job.id} job={job}  />
         ))}
       </ul>
     </>
