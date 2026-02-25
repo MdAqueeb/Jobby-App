@@ -7,18 +7,32 @@ export const AuthProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("user")) || null
   )
 
-  const login = (userData) => {
-    setUser(userData)
-    localStorage.setItem("user", JSON.stringify(userData))
+  const [token, setToken] = useState(
+    localStorage.getItem("token") || null
+  )
+
+  const login = (responseData) => {
+    // assuming backend returns { user: {...}, token: "..." }
+
+    const { user, token } = responseData
+
+    setUser(user)
+    setToken(token)
+
+    localStorage.setItem("user", JSON.stringify(user))
+    localStorage.setItem("token", token)
   }
 
   const logout = () => {
     setUser(null)
+    setToken(null)
+
     localStorage.removeItem("user")
+    localStorage.removeItem("token")
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   )

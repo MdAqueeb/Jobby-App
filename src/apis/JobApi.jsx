@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "http://localhost:8080"; 
+const url = "http://localhost:10000"; 
 
 
 export const getJobs = (filters) => {
@@ -32,7 +32,7 @@ export const getJobs = (filters) => {
 }
 
 export const getJobDetails = (jobId) => {
-    return axios.get(`${url}/job/${jobId}`)
+    return axios.get(`${url}/jobs/${jobId}`)
         .then((res) => {
             console.log(res," res true");
             return res.data;

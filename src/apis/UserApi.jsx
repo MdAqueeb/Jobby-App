@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "http://localhost:8080"; 
+const url = "http://localhost:10000"; 
 
 export const Loginapi = (credential) => {
     return axios.post(`${url}/login`, credential)
