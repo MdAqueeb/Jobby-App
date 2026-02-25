@@ -4,7 +4,7 @@ import { useState } from "react";
 // import Logo from "../assets/logo-img.png";
 import LoginCard from "../Components/LoginCard";
 
-const Login = () => {
+const Loginpage = () => {
   
 
   return (
@@ -14,6 +14,6 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Loginpage;
 
 // // bg-#121212
