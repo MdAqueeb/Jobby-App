@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const url = "http://localhost:10000"; 
+// const url = "http://localhost:10000"; 
+const url = "https://jobby-ofh4.onrender.com";
 
 export const Loginapi = (credential) => {
     return axios.post(`${url}/login`, credential)

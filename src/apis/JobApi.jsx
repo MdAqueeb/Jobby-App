@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "http://localhost:10000"; 
+const url = "https://jobby-ofh4.onrender.com";
 
 
 export const getJobs = (filters) => {
