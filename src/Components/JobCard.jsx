@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom'
 
 const JobCard = ({job}) => {
     const navigate = useNavigate();
+
+   
     return (
-        <li className="bg-[#272727] rounded-xl p-6 text-white" onClick={() => {navigate('/job_details')}}>
+        <li className="bg-[#272727] rounded-xl p-6 text-white" onClick={() => {navigate(`/job_details/${job.job_id}`)}}>
             <div className="flex justify-between items-center">
-            <h1 className="text-lg font-semibold">{job.title}</h1>
-            <p>{job.salary}</p>
+            <h1 className="text-lg font-semibold">{job.job_title}</h1>
+            <p>{job.package_per_annum}L</p>
             </div>
 
             <div className="flex items-center gap-2 mt-2">
@@ -24,14 +26,14 @@ const JobCard = ({job}) => {
             </div>
             <div className="flex items-center gap-1">
                 <BsBriefcaseFill />
-                <p>{job.type}</p>
+                <p>{job.employment_type}</p>
             </div>
             </div>
 
             <hr className="border-[#475569] my-4" />
 
             <h2 className="font-semibold mb-2">Description</h2>
-            <p className="text-[#cbd5e1] text-sm">{job.description}</p>
+            <p className="text-[#cbd5e1] text-sm">{job.job_description}</p>
         </li>
     )
 }

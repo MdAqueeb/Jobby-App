@@ -1,25 +1,27 @@
-import {useState} from 'react'
-import {BsSearch} from 'react-icons/bs'
-import JobCard from './JobCard'
-import NoJobsView from './NoJobsView'
-import JobsFailureView from './JobsFailureView'
 
-const JobsList = ({status}) => {
-  const [search, setSearch] = useState('')
-  const jobs = [
-    {
-      id: 1,
-      title: 'Devops Engineer',
-      rating: 4,
-      location: 'Delhi',
-      type: 'Internship',
-      salary: '10 LPA',
-      description: 'We are looking for DevOps Engineer...',
-    },
-  ]
 
-  if (status === 'FAILURE') {
+
+import { useJobs } from "../context/JobsContext"
+import { BsSearch } from "react-icons/bs"
+import JobCard from "./JobCard"
+import NoJobsView from "./NoJobsView"
+import JobsFailureView from "./JobsFailureView"
+import { useState } from "react"
+
+const JobsList = () => {
+  const { jobs, status, updateFilters } = useJobs()
+  const [search, setSearch] = useState("")
+
+  const handleSearch = () => {
+    updateFilters({ search })
+  }
+
+  if (status === "FAILURE") {
     return <JobsFailureView />
+  }
+
+  if (status === "LOADING") {
+    return <p className="text-white">Loading...</p>
   }
 
   if (jobs.length === 0) {
@@ -36,14 +38,17 @@ const JobsList = ({status}) => {
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
-        <button className="bg-[#272727] px-4 rounded-r border border-[#475569]">
+        <button
+          onClick={handleSearch}
+          className="bg-[#272727] px-4 rounded-r border border-[#475569]"
+        >
           <BsSearch className="text-white" />
         </button>
       </div>
 
       <ul className="space-y-6">
         {jobs.map(job => (
-          <JobCard key={job.id} job={job}  />
+          <JobCard key={job.id} job={job} />
         ))}
       </ul>
     </>

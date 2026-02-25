@@ -14,8 +14,8 @@ function App() {
       {/* <Route path="/failure" element={<LoginFailure />} /> */}
       <Route path="/" element={<Home />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/jobs" element={<Jobs />} />
-      <Route path="/job_details" element={<JobItemDetails />} />
+      <Route path="/jobs/" element={<Jobs />} />
+      <Route path="/job_details/:jobId" element={<JobItemDetails />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

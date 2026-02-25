@@ -24,7 +24,7 @@ const NavBar = () => {
         </div>
 
         <div className="hidden md:block">
-          <button className="bg-[#6366f1] px-4 py-2 rounded-md" onClick={() => {navigate("/login")}}>
+          <button className="bg-[#6366f1] px-4 py-2 rounded-md text-white" onClick={() => {navigate("/login")}}>
             Logout
           </button>
         </div>

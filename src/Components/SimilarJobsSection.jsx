@@ -1,6 +1,15 @@
 import SimilarJobCard from './SimilarJobCard'
 
-const SimilarJobsSection = ({jobs}) => (
+const SimilarJobsSection = ({jobs}) => {
+   if (!jobs || jobs.length === 0) {
+    return (
+      <div>
+        <h1 className="text-2xl font-semibold mb-6">Similar Jobs</h1>
+        <p className="text-[#94a3b8]">No similar jobs available.</p>
+      </div>
+    )
+  }
+  return (
   <div>
     <h1 className="text-2xl font-semibold mb-6">Similar Jobs</h1>
 
@@ -11,5 +20,6 @@ const SimilarJobsSection = ({jobs}) => (
     </div>
   </div>
 )
+}
 
 export default SimilarJobsSection

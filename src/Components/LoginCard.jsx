@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Logo from '../assets/logo-img.png';
 import { useNavigate } from 'react-router-dom';
+import { Loginapi } from '../apis/UserApi';
+import { useAuth } from '../context/AuthContext';
 
 const LoginCard = () => {
   const navigate = useNavigate();
@@ -8,17 +10,39 @@ const LoginCard = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const { login } = useAuth();
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    let credential = {
+      "username" : username,
+      "password" : password
+    }
+    Loginapi(credential)
+      .then((res) => {
+        console.log(res, res.data,+"data");
+        login(res.data);
+        setError("");
+        navigate('/');
+        return 
+      })
+      .catch((err) => {
+        console.log(err);
+        if(err.message === "User Not Found"){
+          navigate("/signup");
+          return 
+        }
+        else if(err.message === "Password Invalid"){
 
-    if (username === "rahul" || password === "1234") {
-      setError("");
-      navigate('/home');
-    }
-    else{
-      setError("*Username and Password didn't match");
-      return;
-    }
+          setError("*Username and Password didn't match");
+          return;
+        }
+        else{
+          setError("Server Not reachable");
+          return ;
+        }
+        
+      })
 
     
     console.log(username, password);
