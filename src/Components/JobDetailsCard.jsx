@@ -9,7 +9,7 @@ const JobDetailsCard = ({jobData}) => {
     rating,
     location,
     employment_type,
-    packagePerAnnum,
+    package_per_annum,
     job_description,
     company,
     skills,
@@ -27,7 +27,7 @@ const JobDetailsCard = ({jobData}) => {
             <p>{rating}</p>
           </div>
         </div>
-        <p className="font-semibold">{packagePerAnnum}</p>
+        <p className="font-semibold">{package_per_annum}</p>
       </div>
 
       <div className="flex gap-6 mt-4 text-[#cbd5e1]">
